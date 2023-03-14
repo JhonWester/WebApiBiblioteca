@@ -18,7 +18,7 @@ steps:
   displayName: 'Instalando Preview ASP.NET Core 6'
   inputs:
     packageType: 'sdk'
-    version: '6.0.100-preview.4.21255.9'
+    version: '6.0.x'
     includePreviewVersions: true
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
