@@ -12,8 +12,8 @@ using WebApiAutores;
 namespace WebApiAutores.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20230212182416_ComentarioUsuario")]
-    partial class ComentarioUsuario
+    [Migration("20230316222727_update")]
+    partial class update
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -131,6 +131,12 @@ namespace WebApiAutores
             services.AddTransient<GeneradorEnlaces>();
             services.AddTransient<HATEOASAutorFilterAttribute>();
             services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
+
+            //Aplication Insights
+            services.AddApplicationInsightsTelemetry(options =>
+            {
+                options.ConnectionString = Configuration["ApplicationInsights:ConnectionString"];
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILogger<Startup> logger)
@@ -149,14 +155,15 @@ namespace WebApiAutores
             // Configure the HTTP request pipeline.
             if (env.IsDevelopment())
             {
-                app.UseSwagger();
-                app.UseSwaggerUI(c =>
-                {
-                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebAPIAutores v1");
-                    c.SwaggerEndpoint("/swagger/v2/swagger.json", "WebAPIAutores v2");
-
-                });
+                app.UseDeveloperExceptionPage();
             }
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebAPIAutores v1");
+                c.SwaggerEndpoint("/swagger/v2/swagger.json", "WebAPIAutores v2");
+
+            });
 
             app.UseRouting();
 
