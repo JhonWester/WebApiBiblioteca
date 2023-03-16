@@ -105,7 +105,7 @@ namespace WebApiAutores.Controllers.V1
         }
 
         /// <summary>
-        /// Autor Delete
+        /// Autor Delete update desde pipeline
         /// </summary>
         /// <param name="id">Autor Id</param>
         /// <returns></returns>
